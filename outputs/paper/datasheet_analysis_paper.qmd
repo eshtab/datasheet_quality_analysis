@@ -1,7 +1,7 @@
 ---
 title: "Datasheet Usage and Quality Analysis"
 author: "Eshta Bhardwaj"
-thanks: "Code and data available at: https://github.com/eshtab/DatasheetQualityAnalysis"
+thanks: "Code and data available at: https://github.com/eshtab/datasheet_quality_analysis"
 date: "April 20 2023"
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
 number-sections: true
@@ -28,8 +28,6 @@ library(lubridate)
 ```
 
 # Introduction
-
-The General Social Survey is conducted nationwide in the US to capture public opinion on a variety of indicators through surveys. This data acts as 
 
 The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.
 
