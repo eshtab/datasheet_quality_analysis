@@ -31,47 +31,24 @@ library(lubridate)
 
 The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.
 
-
 # Data Collection 
 
-## Overview
+## Dataset
 
-## Survey Description
+## Variables
 
-## Population
+## Missing Data
 
-## Frame
-
-## Stratification
-
-## Sample
-
-## Non-response and Imputation
-
-## Survey Design
+## Data Cleaning 
 
 ## Bias
 
-# Data Description
-
-## Overview
-
-## Variables of Interest
+# Methodology 
 
 # Results
 
 # Discussion
 
 # Conclusion
-
-\newpage
-
-\appendix
-
-# Appendix {.unnumbered}
-
-# Additional details
-
-\newpage
 
 # References
