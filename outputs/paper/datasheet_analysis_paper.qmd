@@ -3,14 +3,13 @@ title: "Datasheet Usage and Quality Analysis"
 author: "Eshta Bhardwaj"
 thanks: "Code and data available at: https://github.com/eshtab/datasheet_quality_analysis"
 date: "April 20 2023"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "There has been a prominent uptake of datasheets for datasets in machine learning research to increase transparency in the dataset development process. Using the datasheets published in the NeurIPS 2021 datasets and benchmarks track, I analyze whether the use of datasheets can aid in mitigating risks inherent within large datasets that contribute to biased machine learning models. Although, datasheets are now being used when producing new datasets, there is lack of reflective practice demonstrated while completing these datasheets. In the paper, I discuss how the use of datasheets can be better applied and how datasheets can be improved for better adoption by practitioners."
 number-sections: true
 format: 
   pdf:
     fig-pos: 'H' #this  makes sure that figures are placed directly underneath code
 bibliography: "references.bib"
 ---
-
 
 
 ```{r}
@@ -29,7 +28,17 @@ library(lubridate)
 
 # Introduction
 
-The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.
+Predictive algorithms can operate as black boxes and cause widespread harm to the subjects of the model [@ONeil_2017]. Data scientists, data engineers, annotators, and other practitioners have ethical responsibilities to help mitigate bias and unfairness. Machine learning research (MLR) has pinpointed the data underlying predictive models to be the largest contributor in introducing bias [@Paullada_2021; @Sambasivan_2021; @Scheuerman_2021].
+
+Recent publications have identified the importance of prioritizing “data work” as a key issue in machine learning research [@Sambasivan_2021]. Data work in this context refers to performing data tasks, investigating data quality, applying frameworks around data practices and the preparation of data prior to its use within a model. Sambasivan et al. argue that ignoring data work leads to data cascades which are “compounding events causing negative, downstream effects from data issues, resulting in technical debt over time” [@Sambasivan_2021]. Data work therefore enables increased focus towards stewardship, quality, accountability, and transparency. Bender et al. emphasize that documentation of data collection practices can aid in mitigating risks inherent within large, biased ML models [@Bender_2021]. Additionally, the documentation should include the researcher’s positionality and motivation in developing the model and potential risks to the users and stakeholders [@Bender_2021]. 
+
+Emerging research has started to address this lack of data work with the introduction of context documents. Context documents provide documentation for datasets or machine learning (ML) models by detailing aspects of provenance and data collection and are particularly geared to answering ethical questions about the data [@Boyd_2021]. One of the most popularly used context documents is datasheets. Datasheets provide documentation for machine learning datasets by addressing the needs of two primary user groups: dataset creators and dataset consumers [@Gebru_2021]. For the creators, it facilitates reflection on the processes of data creation, distribution, and maintenance and allows creators to highlight assumptions and potential risks. While consumers benefit from this documentation because it provides the transparency required to make key decisions. 
+
+Since the original publication of Datasheets for Datasets in 2018, there has been large uptake of its usage by researchers and practitioners [@Gebru_2018]. In fact, various forms of context documentation have since emerged. For example, data statements for natural language processing (NLP) datasets contain specifications on demographic information about the dataset annotator, quality of the dataset, provenance, etc. [@Bender_Friedman_2018]. Similarly, an AI fairness checklist was developed to aid practitioners by providing a structured framework for identifying and addressing issues within their projects [@Madaio_2020]. Another context document proposed in recent years is model cards which aim to “standardize ethical practice and reporting” within ML models. Model cards include details about the models, their intended use, impacts of the model on the real-world, evaluation data, details on the training data, and ethical considerations [@Mitchell_2019]. On the other hand, explainability fact sheets are used for similar documentation but are specifically geared towards the method applied in a predictive model. Therefore, the fact sheet contains an evaluation of the method’s functional and operational requirements, the criteria used for the evaluation, any security, privacy or other vulnerabilities that may be introduced by the method, and the results of this evaluation [@Sokol_Flach_2020]. However, a review investigating the quality of such context documents remains to be performed. 
+
+In this paper, I review 21 datasheets published as part of the papers in the 2021 NeurIPS datasets and benchmarks track. A text analysis of these datasheets is performed to analyze how practitioners and researchers fill the datasheets, what areas they choose to focus on, how they answer the questions to determine their level of reflection while completing these datasheets, and whether the level of completion of the datasheet can actually enable increased accountability and transparency. This review will therefore contribute by providing an understanding of 2 important facets of adopting datasheets as standard practice: 1) it will provide an assessment of whether the use of datasheets is a mere formality or performed with critical reflection of data practices by practitioners and 2) it will highlight whether the datasheet as a context document sufficiently and effectively enables its users to capture the required information about a given dataset. 
+
+The remainder of the paper is structured as follows. In Section 2, I discuss details about the data source, provenance, variables, and important ethical implications and biases present within the data collection process. In Section 3, I discuss the methodology used to analyze the datasheets, specifically looking at what and how the text analysis is performed. In Section 4, the results of the analysis are presented and subsequently discussed in Section 5 along with a review of limitations of the analysis performed. Section 6 concludes the paper with a look at potential future work. 
 
 # Data Collection 
 
@@ -45,10 +54,18 @@ The introduction is self-contained and tells a reader everything they need to kn
 
 # Methodology 
 
+## Overview
+
+## Data Quality
+
+## Data Processing
+
 # Results
 
 # Discussion
 
 # Conclusion
+
+## Future Work
 
 # References
