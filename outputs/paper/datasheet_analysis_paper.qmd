@@ -64,6 +64,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
       - numbered the questions
       - added A. prefix for answers
       - made the section headers all caps
+      - added no to "any other comments" to ensure completion % was accurate
 
 # Methodology {#sec-methodology}
 
@@ -80,7 +81,9 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
 
 - go over each variable for both individual datasheet dataset and summary dataset
   - values, range
+  
 - each dataset for datasheet
+  - datasheet_version
   - q_number (ID num between 1 to either 50 or 57 based on datasheet version)
   - completed (yes or no for whether the question was completed)
   - length (response length in words)
@@ -92,7 +95,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
   - paper_title_short
   - datasheet_version (2018 or 2021)
   - total_length_wrds (total response length of all questions)
-  - question_completion_pct (number of questions with response of any length divided by 50 or 57 questions -- unless skipa value is not related to humans then the denominator is diff)
+  - question_completion_pct (number of questions with response of any length divided by 50 or 57 questions -- unless skipa and skipb value is not related to humans then the questions are counted as complete regardless)
   - avg_response_length (avg response length of all questions)
   - max_response_length (max response length of all questions)
   - max_response_qnum (corresponding question number that had max length)
@@ -122,16 +125,17 @@ This section discusses the processing involved in generating each datapoint in t
   - avg, min and max length of answers for each datasheet
   - if it makes (check for most common words from the top 10 list for each question - if its too generic, omit)
   this column in dataset)
-  - overall score 
+  - overall score (average calculated based on % completed and avg, min, max length of responses)
 
 # Results {#sec-results}
-The 22 datasets can be found here [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/data).
+The 22 datasets can be found here [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/cleaned).
 
 # Discussion {#sec-discussion}
 
 ## Findings {sec-findings}
 - discuss findings from results
 - note: is it possible to tell that datasheet1 didn't have a good maintenance section based on data alone?
+- note: datasheet 2,5 say it  has no repo which inherently  means that not enough consideration was given to documentation and reusability- is this  reflected in their overall automated score? 
 
 ## Insights {#sec-insights}
 - inherent  missing things within datasheets such as consideration of limited consideration of FAIR principles, ethical considerations, threats to validity, environmental and financial footprint, domain knowledge, context awareness, 
@@ -150,6 +154,7 @@ which makes comparison problematic
 
 ## Challenges {#sec-challenges}
 - everyone co-opts the datasheet in their own format (to circumvent this i did manual recoding of the datasheets but that can introduce error)
+- some datasheets paraphrased the questions or instead of leaving questions blank, completely removed them altogether (ie datasheet14) - another reason why it was important to manually standardize the texts into one format
 
 # Conclusion {#sec-conclusion}
 
