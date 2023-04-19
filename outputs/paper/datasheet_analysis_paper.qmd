@@ -84,10 +84,10 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
   
 - each dataset for datasheet
   - datasheet_version
-  - q_number (ID num between 1 to either 50 or 57 based on datasheet version)
-  - completed (yes or no for whether the question was completed)
-  - length (response length in words)
-  - top_10_words (most frequently occurring words in the response (list of 10 words excluding stopwords))
+  - qnum (ID num between 1 to either 50 or 57 based on datasheet version)
+  - completion (yes or no for whether the question was completed)
+  - length_words (response length in words)
+  - top_5_words (most frequently occurring words in the response (list of 5 words excluding stopwords) but eventually only consider responses that had more than 10 words)
   
 - summary dataset
   - datasheet_ID (ID num between 1 to 21)
@@ -101,7 +101,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
   - max_response_qnum (corresponding question number that had max length)
   - min_response_length (min response length (can't be 0) of all questions)
   - min_response_qnum (corresponding question number that had min length)
-  - overall_top_10_words (most common top 10 words in overall datasheet excluding stopwords)
+  - overall_top_5_words (most common top 5 words in overall datasheet excluding stopwords)
   - score
 
 ## Data Processing {#sec-data_processing}
@@ -163,6 +163,7 @@ which makes comparison problematic
 - analyze 2022 neurips papers
 - write datasheets for the generated papers and analyze them
 - for the 21 sheets analyzed here, do a manual coding and analysis and compare with automated
+- usage of datasheets has to be standardized, and guidelines have to enforce standard formatting to ensure that future analyses can be performed 
 \newpage
 
 # References {#sec-references}
