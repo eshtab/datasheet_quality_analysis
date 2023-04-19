@@ -1,0 +1,8 @@
+"datasheet_ID","title_short","total_length_wrds","question_completion_pct","avg_response_length","max_response_length","max_response_qnum","min_response_length","min_response_qnum","overall_top_5_words","score_pct"
+1,"sandbox_dna",2536,98,50.72,245,22,0,"19","data, cell, dataset, also, available",92.4
+2,"garments",1594,96.4912280701754,27.9649122807018,121,5,0,"17, 18, 19, 20, 27, 28, 29, 30, 31, 32, 34, 35","dataset, 3D, base, body, data",59.4
+3,"PASS",1341,100,23.5263157894737,147,1,0,"17, 18, 19, 20, 27, 28, 29, 30, 31, 32","dataset, images, addition,, also, available",52.8
+4,"spatial_apartheid",3142,100,55.1228070175439,351,13,1,"4, 20, 32, 36, 42, 48, 49, 54, 57","dataset, -, can, data, building",99
+5,"CSFCube",1253,89.4736842105263,21.9824561403509,209,12,0,"3, 8, 22, 54, 55, 56","dataset, abstracts, corpus., annotators, citation",46.2
+6,"digital_experiments",1950,98.2456140350877,34.8214285714286,167,13,1,"4, 19, 20, 32, 35, 41, 46, 47, 48, 56","dataset, The, data, “Datasets, activity",66
+7,"PROCAT",1419,94.7368421052632,25.3392857142857,186,7,0,"16, 17, 18, 19, 26, 27, 28, 29, 30, 31","dataset, catalogue, data, The, appendix",46.2

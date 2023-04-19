@@ -4,7 +4,7 @@
 # Date: April 21 2023
 # Contact: eshta.bhardwaj@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: Must already have pdfs of datasheets downloaded. Pdf must be in single column format.
+# Pre-requisites: Must already have pdfs of datasheets downloaded with some manual formatting performed.
 
 #### Workspace set-up ####
 library(tidyverse)
