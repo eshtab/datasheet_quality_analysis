@@ -55,17 +55,5 @@ datasheet1_tbl <-
 
 # remove rows that are blank in first column
 # source: https://stackoverflow.com/questions/9126840/delete-rows-with-blank-values-in-one-particular-column
-datasheet1_tbl <- datasheet1_tbl[-which(datasheet1_tbl$raw_text == "")]
+datasheet1_tbl <- datasheet1_tbl[-which(datasheet1_tbl$raw_text == ""),]
 
-# create column that identifies section header, question rows, and answer rows
-# this will enable counting for completion and word count 
-
-
-# source: https://www.tutorialspoint.com/how-to-check-whether-a-string-is-in-lowercase-or-uppercase-in-r#:~:text=We%20can%20use%20str_detect%20function,is%20in%20lowercase%20or%20uppercase.
-if (str_detect(x2,"[[:upper:]]") == TRUE){
-  datasheet1_tbl$text_type = 'header'
-} else{
-    
-  
-  }
-     

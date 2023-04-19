@@ -58,7 +58,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
     - then filled datasheets from their original formatting to standardized formatting
       - this was needed b/c all datasheets used their own formatting like starting
       the answer right after the question instead of on a new line, 2 column layout, or had
-      other sections/appendices etc before/after it. to be able to automate any type of 
+      other sections/appendices etc before/after it or had images in the datasheet. to be able to automate any type of 
       analysis, the data  had to be standardized in one format  
     - made it easier to identify diff elements of a datasheet (header, question, answer)
       - numbered the questions
@@ -84,7 +84,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
   - q_number (ID num between 1 to either 50 or 57 based on datasheet version)
   - completed (yes or no for whether the question was completed)
   - length (response length in words)
-  - top_10_words (most frequently occuring words in the response (list of 10 words excluding stopwords))
+  - top_10_words (most frequently occurring words in the response (list of 10 words excluding stopwords))
   
 - summary dataset
   - datasheet_ID (ID num between 1 to 21)
@@ -99,6 +99,7 @@ The remainder of the paper is structured as follows. In @sec-collection, I discu
   - min_response_length (min response length (can't be 0) of all questions)
   - min_response_qnum (corresponding question number that had min length)
   - overall_top_10_words (most common top 10 words in overall datasheet excluding stopwords)
+  - score
 
 ## Data Processing {#sec-data_processing}
 
@@ -121,10 +122,10 @@ This section discusses the processing involved in generating each datapoint in t
   - avg, min and max length of answers for each datasheet
   - if it makes (check for most common words from the top 10 list for each question - if its too generic, omit)
   this column in dataset)
-  - overall score (avg of per question score from datasheet dataset)
+  - overall score 
 
 # Results {#sec-results}
-The 22 datasets can be found here [link]().
+The 22 datasets can be found here [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/data).
 
 # Discussion {#sec-discussion}
 
@@ -145,6 +146,7 @@ which makes comparison problematic
 - authors often link to other sections of their  appendix or attached supplementary material which isn't considered in this analysis 
 - go over potential issues with the calculation of each variable
 - length of response doesn't indicate quality documentation
+- some datasheets added their own questions (in some cases that was the purpose of their paper and in other cases, it was unknown - ie datasheet3)
 
 ## Challenges {#sec-challenges}
 - everyone co-opts the datasheet in their own format (to circumvent this i did manual recoding of the datasheets but that can introduce error)
