@@ -50,21 +50,28 @@ The source of the datasheets analyzed in this paper is the 2021 NeurIPS datasets
 The papers, although published in NeurIPS2021, did not always have the datasheets available on the publication website. As such, the datasheets were sourced in 1 of 3 ways. Firstly, the supplemental section of each paper was downloaded to check whether the author uploaded an appendix or datasheet file ([link](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021)). If there was no file found, then the arxiv version of the publicaton was sourced which often included the datasheet within an appendix or linked to on another website (like github). In some cases, there was no link or attached datasheet within the publication but it was mentioned in the paper as being completed. In this case, a general search was performed to retrieve any github, personal website, or other source where the datasheet was published. 
 
 ## Missing Data {#sec-missing_data}
-- discussion on missing datasheets from research papers that created datasets 
+
+There were a total of 174 papers published in the NeurIPS 2021 benchmarks and datasets track. Of the 174 papers, there were 3 main types of contributions: creation of a benchmark model, creation of a dataset, and discussion on the importance of data curation in machine learning dataset development. There were 93 papers that created a new dataset, however only 21 of those papers had a datasheet. It is potentially possible to fill out a datasheet based solely on the information available within the research paper, however that was not done for this analysis. 
+
+The publications considered in this analysis are as follows: (will complete this later-todo)
+
+| Datasheet Number | Publication Title                                                                  | Reference                 |
+|------------------|------------------------------------------------------------------------------------|---------------------------|
+| 1                | A sandbox for prediction and integration of DNA, RNA, and proteins in single cells | [@Chen_2021]              |
+| 2                | Generating Datasets of 3D Garments with Sewing Patterns                            | [@Lee_2021]               |
+| 3                | PASS An ImageNet replacement for self-supervised pretraining without humans        | [@Asano_2021]             |
 
 ## Data Preparation and Cleaning {#sec-dataprep}
-- manual cleaning: 
-  - created blank datasheet templates for both 2018 and 2021
-    - then filled datasheets from their original formatting to standardized formatting
-      - this was needed b/c all datasheets used their own formatting like starting
-      the answer right after the question instead of on a new line, 2 column layout, or had
-      other sections/appendices etc before/after it or had images in the datasheet. to be able to automate any type of 
-      analysis, the data  had to be standardized in one format  
-    - made it easier to identify diff elements of a datasheet (header, question, answer)
-      - numbered the questions
-      - added A. prefix for answers
-      - made the section headers all caps
-      - added no to "any other comments" to ensure completion % was accurate
+
+Each of the 21 datasheets was formatted in a unique manner, based on the authors' preferences. This included the use of single or double columns, placing section headers within a box, numbering the questions numerically or alphabetically, and many more. The datasheets were also based on either the 2018 or 2021 version of the publication. In the 2018 version, there was a section on 'Legal and ethical considerations' which was later removed in the 2021 version and a new section called 'Uses' was added. All these differences meant that a certain level of standardization had to be introduced to each datasheet pdf file in order to enable its analysis within R. 
+
+To create this standardization, I started by downloading blank datasheet templates for both the 2018 and 2021 versions. To the blank templates, I added 2 types of tags. The first type of tag was [question#]. This tag was placed at the start of each question and the # was replaced for each question (for a total of 50 questions in the 2018 version and 57 questions in the 2021 version). I repeated the same with the answer tag [answer#]. 
+
+Then, I downloaded all 21 datasheets in a pdf format. For each datasheet, I copied the responses and placed them in the appropriate [answer#] tag. I also removed images, tables, and any other type of content other than text. I changed all section headers to be capitalized (this would  also aid in analysis later, as discussed in @sec-overview). Lastly, I added 'No' to any questions in the datasheet that asked 'Any other comments'. This was added so that completion of each question could be calculated correctly. 
+
+A sample of the original datasheet (direct downloaded from source) can be found here: [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw/sample_of_og_datasheet)
+
+The standard formatted datasheets can be found here: (yes only 7 now, will have all eventually) [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw)
 
 # Methodology {#sec-methodology}
 
@@ -76,6 +83,8 @@ The papers, although published in NeurIPS2021, did not always have the datasheet
   - score (based on first 3 metrics) 
     - will need to code overall length and length of answer into numeric "grade" between 1-5
   - list of top 10 most common words per question (excluding stopwords)
+
+- todo: add references for R and the packages used
 
 ## Overview {#sec-overview}
 
@@ -111,8 +120,9 @@ This section discusses the processing involved in generating each datapoint in t
 
 - automated cleaning/processing
   - removed rows with blank strings
-  - created a column identifying header, question, answer (created a loop to go over entire   text to do this)
+  - created a column identifying header, question, answer based on the tags (created a loop to go over entire text to do this)
   - total number of words in datasheet (created loop for counting)
+  
 - generating datasheet dataset
   - each dataset had 50 or 57 rows based on 2018 or 2021 template 
   - completion check (check for length of string after prefix)
@@ -128,7 +138,8 @@ This section discusses the processing involved in generating each datapoint in t
   - overall score (average calculated based on % completed and avg, min, max length of responses)
 
 # Results {#sec-results}
-The 22 datasets can be found here [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/cleaned).
+The 22 datasets can be found here (yes, currently only 7 datasheets but will eventually be 21) [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/cleaned).
+
 
 # Discussion {#sec-discussion}
 
