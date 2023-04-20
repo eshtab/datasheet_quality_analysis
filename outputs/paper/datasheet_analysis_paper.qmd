@@ -66,9 +66,9 @@ To create this standardization, I started by downloading blank datasheet templat
 
 Then, I downloaded all 21 datasheets in a pdf format. For each datasheet, I copied the responses and placed them in the appropriate [answer#] tag. I also removed images, tables, and any other type of content other than text. I changed all section headers to be capitalized (this would  also aid in analysis later, as discussed in @sec-overview). Lastly, I added 'No' to any questions in the datasheet that asked 'Any other comments'. This was added so that completion of each question could be calculated correctly. 
 
-A sample of the original datasheet (direct downloaded from source) can be found here: [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw/sample_of_og_datasheet)
+A sample of an original datasheet (direct download from source) can be found here: [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw/sample_of_og_datasheet)
 
-The standard formatted datasheets can be found here: (yes only 7 now, will have all eventually) [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw)
+All the standard formatted datasheets can be found here: [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/raw)
 
 # Methodology {#sec-methodology}
 
@@ -135,7 +135,7 @@ This section discusses the processing involved in generating each datapoint in t
   - overall score (average calculated based on % completed and avg, min, max length of responses)
 
 # Results {#sec-results}
-The 22 datasets can be found here (yes, currently only 7 datasheets but will eventually be 21) [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/cleaned).
+The 22 datasets can be found here [link](https://github.com/eshtab/datasheet_quality_analysis/tree/master/inputs/data/cleaned).
 
 
 # Discussion {#sec-discussion}
