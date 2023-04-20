@@ -21,9 +21,6 @@ bibliography: "references.bib"
 #### Workspace set-up ####
 
 library(tidyverse)
-library(janitor)
-library(modelsummary)
-library(lubridate)
 
 ```
 
@@ -63,7 +60,7 @@ The publications considered in this analysis are as follows: (will complete this
 
 ## Data Preparation and Cleaning {#sec-dataprep}
 
-Each of the 21 datasheets was formatted in a unique manner, based on the authors' preferences. This included the use of single or double columns, placing section headers within a box, numbering the questions numerically or alphabetically, and many more. The datasheets were also based on either the 2018 or 2021 version of the publication. In the 2018 version, there was a section on 'Legal and ethical considerations' which was later removed in the 2021 version and a new section called 'Uses' was added. All these differences meant that a certain level of standardization had to be introduced to each datasheet pdf file in order to enable its analysis within R. 
+Each of the 21 datasheets was formatted in a unique manner, based on the authors' preferences. This included the use of single or double columns, placing section headers within a box, numbering the questions numerically or alphabetically, and many more. The datasheets were also based on either the 2018 or 2021 version of the publication. In the 2018 version, there was a section on 'Legal and ethical considerations' which was later removed in the 2021 version and a new section called 'Uses' was added. In some cases, the datasheet was created as a standalone document and in other cases it was part of the appendix of the original paper which meant it could have test preceding and following the actual datasheet content. All these differences meant that a certain level of standardization had to be introduced to each datasheet pdf file in order to enable its analysis within R. 
 
 To create this standardization, I started by downloading blank datasheet templates for both the 2018 and 2021 versions. To the blank templates, I added 2 types of tags. The first type of tag was [question#]. This tag was placed at the start of each question and the # was replaced for each question (for a total of 50 questions in the 2018 version and 57 questions in the 2021 version). I repeated the same with the answer tag [answer#]. 
 
@@ -166,6 +163,9 @@ which makes comparison problematic
 ## Challenges {#sec-challenges}
 - everyone co-opts the datasheet in their own format (to circumvent this i did manual recoding of the datasheets but that can introduce error)
 - some datasheets paraphrased the questions or instead of leaving questions blank, completely removed them altogether (ie datasheet14) - another reason why it was important to manually standardize the texts into one format
+- some dataheets wrote answers under section headers and removed qs (datasheet10) which meant that it was poorly done
+- some papers separated out questios into  more than 1 question like  datasheet 11 under 4.4.1  and 4.4.2
+
 
 # Conclusion {#sec-conclusion}
 
