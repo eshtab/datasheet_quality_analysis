@@ -25,7 +25,6 @@ library(vctrs)
 library(reshape2)
 ```
 
-\newpage
 
 # Introduction
 
@@ -177,15 +176,17 @@ datasheet21 <-
 ```
 
 
-The source of the datasheets analyzed in this paper is the 2021 NeurIPS datasets and benchmarks track. 2021 was the first year of this track which was introduced to provide datasets to help the NeurIPS community evaluate their algorithms [@Vanschoren_2021]. Given that the NeurIPS community focuses on algorithmic design, the lack of documentations for datasets used for evaluation prevented reuse or rather created situations of inappropriate reuse, where datasets were not fit for the tasks they were applied to. The lack of evaluation of representativeness further added to the misuse of existing datasets and thereby contributed to biased models and biased results [@Vanschoren_2021]. 
+The source of the datasheets analyzed in this paper is the 2021 NeurIPS datasets and benchmarks track. 2021 was the first year of this track which was introduced to provide datasets to help the NeurIPS community evaluate their algorithms [@Vanschoren_2021]. Given that the NeurIPS community focuses on algorithmic design, the lack of documentation for datasets used for evaluation prevented reuse or rather created situations of inappropriate reuse, where datasets were not fit for the tasks they were applied to. The absence of evaluation of representativeness further added to the misuse of existing datasets and thereby contributed to biased models and biased results [@Vanschoren_2021]. 
 
-The papers, although published in NeurIPS2021, did not always have the datasheets available on the publication website. As such, the datasheets were sourced in 1 of 3 ways. Firstly, the supplemental section of each paper was downloaded to check whether the author uploaded an appendix or datasheet file ([link](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021)). If there was no file found, then the arxiv version of the publicaton was sourced which often included the datasheet within an appendix or linked to on another website (like github). In some cases, there was no link or attached datasheet within the publication but it was mentioned in the paper as being completed. In this case, a general search was performed to retrieve any github, personal website, or other source where the datasheet was published. 
+## Overview
+
+The papers, although published in NeurIPS2021, did not always have the datasheets available on the publication website. As such, the datasheets were sourced in 1 of 3 ways. Firstly, the supplemental section of each paper was downloaded to check whether the author uploaded an appendix or datasheet file ([link](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021)). If there was no file found, then the arxiv version of the publicaton was sourced which often included the datasheet within an appendix or linked to another website (such as Github). In some cases, there was no link or attached datasheet within the publication but it was mentioned in the paper as being completed. In this case, a general search was performed to retrieve any Github, personal website, or other source where the datasheet was published. 
 
 ## Missing Data {#sec-missing_data}
 
 There were a total of 174 papers published in the NeurIPS 2021 benchmarks and datasets track. Of the 174 papers, there were 3 main types of contributions: creation of a benchmark model, creation of a dataset, and discussion on the importance of data curation in machine learning dataset development. There were 93 papers that created a new dataset, however only 21 of those papers had a datasheet. It is potentially possible to fill out a datasheet based solely on the information available within the research paper, however that was not done for this analysis. 
 
-The publications considered in this analysis are as follows: (will complete this later-todo)
+The publications considered in this analysis are as follows:
 
 | Datasheet Number | Publication Title                                                                                       | Reference                 |
 |------------------|---------------------------------------------------------------------------------------------------------|---------------------------|
@@ -214,7 +215,7 @@ The publications considered in this analysis are as follows: (will complete this
 
 ## Data Preparation and Cleaning {#sec-dataprep}
 
-Each of the 21 datasheets was formatted in a unique manner, based on the authors' preferences. This included the use of single or double columns, placing section headers within a box, numbering the questions numerically or alphabetically, and many more. The datasheets were also based on either the 2018 or 2021 version of the publication. In the 2018 version, there was a section on 'Legal and ethical considerations' which was later removed in the 2021 version and a new section called 'Uses' was added. In some cases, the datasheet was created as a standalone document and in other cases it was part of the appendix of the original paper which meant it could have test preceding and following the actual datasheet content. All these differences meant that a certain level of standardization had to be introduced to each datasheet pdf file in order to enable its analysis within R statistical programming language [@citeR]. 
+Each of the 21 datasheets was formatted in a unique manner, based on the authors' preferences. This included the use of single or double columns, placing section headers within a box, numbering the questions numerically or alphabetically, and many more. In some cases, the datasheet was created as a standalone document and in other cases it was part of the appendix of the original paper which meant it had text preceding and following the datasheet content. The datasheets were also based on either the 2018 or 2021 version of the publication. In the 2018 version, there was a section on 'Legal and ethical considerations' which was later removed in the 2021 version and a new section called 'Uses' was added. All these differences meant that a certain level of standardization had to be introduced to each datasheet pdf file in order to enable its analysis within R statistical programming language [@citeR]. 
 
 To create this standardization, I started by downloading blank datasheet templates for both the 2018 and 2021 versions. To the blank templates, I added 2 types of tags. The first type of tag was [question#]. This tag was placed at the start of each question and the # was replaced for each question (for a total of 50 questions in the 2018 version and 57 questions in the 2021 version). I repeated the same with the answer tag [answer#]. 
 
@@ -226,7 +227,7 @@ All the standard formatted datasheets can be found here: [link](https://github.c
 
 # Methodology {#sec-methodology}
 
-The standardized and consistently formatted datasheets were used to create 2 types of datasets. The first type of dataset contained metrics about an individual datasheet while the second type was a summary of all 21 datasheets. Overall, these datasets helped in understanding the following metrics of interest: 
+The standardized and consistently formatted datasheets were used to create 2 types of datasets. The first type of dataset contained metrics about each individual datasheet while the second type was a summary of all 21 datasheets. Overall, these datasets helped in examining the following metrics of interest: 
 
 -   Question completion (any length of response for each question and overall completion)
 -   Length of datasheet (total length in words, excluding the questions themselves)
@@ -235,7 +236,7 @@ The standardized and consistently formatted datasheets were used to create 2 typ
 -   Score (calculated based on total datasheet length, average length of responses, and question completion rate)
 
 
-In the following sections, the variables and the processing involved to generate them will be discussed in detail. 
+In the following sections, the variables and the processing involved to generate them are discussed in detail. 
 
 ## Overview {#sec-overview}
 
@@ -268,7 +269,7 @@ In the summary dataset, the following variables were created:
 
 ## Data Processing {#sec-data_processing}
 
-The processing involved for creating each variable is listed below. Packages that were used include: tidyverse (for various data related functions) [@citeTidyverse], pdftools (for extracting text from pdf files) [@citePDF], vctrs (for vector manipulation) [@citeVctrs], reshape2 (for the melt function which was used to reshape dataframes) [@citeReshape], stopwords (for filtering out stopwords) [@citeStopwords], and randomWords (for generating lists of random strings) [@citeReshape]. 
+The processing involved for creating each variable is listed below. Packages that were used include: tidyverse (for various data related functions) [@citeTidyverse], pdftools (for extracting text from pdf files) [@citePDF], vctrs (for vector manipulation) [@citeVctrs], reshape2 (for the melt function which was used to reshape dataframes) [@citeReshape], stopwords (for filtering out stopwords) [@citeStopwords], and randomWords (for generating lists of random strings) [@citeRandomWrds]. 
 
 To start with, each datasheet in pdf format was read in and every new line was separated into a row of a dataframe. Blank rows due  to spaces were deleted. The tags that were added in during the manual coding phase were then used to identify each line in the dataframe as a section header, question, or answer.
 
@@ -276,7 +277,7 @@ To create the datasheets' datasets, the following variables were developed:
 
 -   **datasheet_version**: Manually coded as 2018 or 2021
 -   **qnum**: An ID number was generated by looping through rows of each datasheet
--   **completion**: The completion was recorded as 'Yes' if the response had a length of words greater than 1. There were also 2 questions in the 2021 version of the datasheet which stated "If the dataset does not relate to people, you may skip the remaining questions in this section.". The responses for these 2 questions were recorded and ensured that if the authors answered the questions could be skipped, then their completion for those questions would still be considered complete. 
+-   **completion**: The completion was recorded as 'Yes' if the response had a length of words greater than 1. There were also 2 questions in the 2021 version of the datasheet which stated "If the dataset does not relate to people, you may skip the remaining questions in this section.". The responses for these 2 questions were recorded and ensured that if the authors answered the questions could be skipped, then their answer for those questions would still be considered complete. 
 -   **length_words**: The length of words was calculated by looping  through the datasheet and adding the length of the  responses for each question.
 -   **top_5_frequent_words**: The top 5 most frequent words for each response was derived by generating the frequencies for all the words in the datasheets and then filtering out question and answer tags, the top 400 stopwords, and keeping only the 5 most frequent words per question. 
 
@@ -294,7 +295,7 @@ To create the summary dataset, the following variables were developed:
 -   **min_response_length**: The minimum length of any given response for each datasheet was retrieved from the datasheet datasets.
 -   **min_response_qnum**: The corresponding question number with the minimum response length was retrieved by matching the value of the response length  with the question number  from the  datasheet  datasets. However, in many cases, this returned more than 1 question number. These were then formed into a list type. 
 -   **overall_top_5_words**: The overall top 5 words for each datasheet were generated by combining all the top 5 words from each question in a given datasheet into one list (along with their frequencies). However this list  excluded responses that had 10 or less words. Then the 5 words with the highest  frequencies were considered as the most overall 5 most used words. 
--   **score_pct**: The score for each datasheet was calculated by giving a numbered score between 0-5 to **total_length_wrds**, **question_completion_pct**, and **avg_response_length**. The score for total length of a datasheet was 0 for having less than 1000 words, 1 for 1001-1500 words, 2 for 1501-2000 words, 3 for 2001-2500 words, 4 for 2501-3000 words and 5 for over 3000 words. The score for question completion was 1 if the completion percentage was between 0-50, 2 for 51-75, 3 for 76-85, 4 for 86-95, and 5 for above 95%. The score for average length of the response was 1 for 0-20 words, 2 for 21-30 words, 3 for 31-40 words, 4 for 41-50 words, and 5 for over 50 words. Each of these scores had an equal weight in determining the overall score for each datasheet. 
+-   **score_pct**: The score for each datasheet was calculated by giving a numbered score between 0-5 to **total_length_wrds**, **question_completion_pct**, and **avg_response_length**. The score for total length of a datasheet was 0 for having less than 1000 words, 1 for 1001-1500 words, 2 for 1501-2000 words, 3 for 2001-2500 words, 4 for 2501-3000 words, and 5 for over 3000 words. The score for question completion was 1 if the completion percentage was between 0-50, 2 for 51-75, 3 for 76-85, 4 for 86-95, and 5 for above 95%. The score for average length of the response was 1 for 0-20 words, 2 for 21-30 words, 3 for 31-40 words, 4 for 41-50 words, and 5 for over 50 words. Each of these scores had an equal weight in determining the overall score for each datasheet. 
 
 
 # Results {#sec-results}
@@ -361,8 +362,7 @@ summary |>
 scale_fill_brewer(palette = "Set1")
 
 ```
-In @fig-figure2, the percentage of question completion is demonstrated. Most datasheets had completion of between 80-100%. A few datasheets had completion near 60% and only one datasheet under 50% (datasheet 21). Seven datasheets had full completion - 3, 4, 6, 7, 15, 18, and 19. None of the datasheets with the lowest number of words had a full completion rate indicating that authors that fully filled out the datasheet were likely to do 
-in greater detail. 
+In @fig-figure2, the percentage of question completion is demonstrated. Most datasheets had completion of between 80-100%. A few datasheets had completion near 60% and only one datasheet under 50% (datasheet 21). Seven datasheets had full completion - 3, 4, 6, 7, 15, 18, and 19. None of the datasheets with the lowest number of words had a full completion rate indicating that authors that fully filled out the datasheet were likely to do so in greater detail. 
 
 ```{r}
 #| echo: FALSE
@@ -389,7 +389,7 @@ ggplot(dfm,aes(x = datasheet_ID,y = value)) +
   theme_bw() 
   
 ```
-In @fig-figure3, three metrics are shown - average response length in words, maximum response length in words, and minimum length in words. A third of the responses had an average length of  20-30 words, roughly another third of the responses had an average length of 30-40 words, only 2 datasheets had average response length over 50 words and the remaining were under 20 words. Five datasheets (4, 9, 12, 16, 21) had the highest maximum word count ranging from over 325 words to over 500 words. Datasheet 21 with the lowest completion rate also had 3rd highest maximum response length. The minimum response length was either 0 or 1 word. 0 indicated an incomplete response while 1 responses answers like 'No'. 
+In @fig-figure3, three metrics are shown - average response length in words, maximum response length in words, and minimum length in words. A third of the responses had an average length of  20-30 words, roughly another third of the responses had an average length of 30-40 words, only 2 datasheets had average response length over 50 words and the remaining were under 20 words. Five datasheets (4, 9, 12, 16, 21) had the highest maximum word count ranging from over 325 words to over 500 words. Datasheet 21 with the lowest completion rate also had 3rd highest maximum response length. The minimum response length was either 0 or 1 word. 0 indicated an incomplete response while 1-word responses indicated answers like 'No'. 
 
 ```{r}
 #| echo: FALSE
@@ -416,7 +416,7 @@ summary |>
   theme(axis.text.y = element_text(angle = 45, vjust = 1, hjust=1))
 
 ``` 
-In @fig-figure4, a scatterplot with the Datasheet ID is plotted against the  question number to demonstrate the questions with the maximum response length. The labels are the question number. Therefore reading the graph horizontally reveals the question numbers that commonly had the maximum response length. This included questions like 1, 8, 13, and 16. 
+@fig-figure4 shows a scatterplot with the Datasheet ID plotted against the  question number to demonstrate the questions with the maximum response length. The labels are the question number. Therefore reading the graph horizontally reveals the question numbers that commonly had the maximum response length. This included questions like 1, 8, 13, and 16. 
 
 -   **Question 1**: For what purpose was the dataset created? Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description.
 -   **Question 8**: What data does each instance consist of? "Raw" data (for example, unprocessed text or images) or features? In either case, please provide a description.
@@ -473,9 +473,9 @@ plotDF |>
 
 ```
 
-@fig-figure5 also shows a scatterplot with datasheet ID plotted against question number, however these question numbers represent the responses with the corresponding minimum length. For example, datasheet 1 has a minimum response length of 0 words for question 19. WHereas datasheet has a minimum response length of 1 word for questions 4, 20, 32, 36, 42, 48, 49, 54, and 57. The labels represent the question number (unlike @fig-figure4 where they represented the datasheet ID). Therefore, reading the graph horizontally shows the question numbers that most commonly had the lowest response lengths across all datasheets, while reading the graph vertically shows the question numbers with the lowest response length for each datasheet. 
+@fig-figure5 also shows a scatterplot with datasheet ID plotted against question number, however these question numbers represent the responses with the corresponding minimum length. For example, datasheet 1 has a minimum response length of 0 words for question 19. Whereas datasheet 4 has a minimum response length of 1 word for questions 4, 20, 32, 36, 42, 48, 49, 54, and 57. The labels represent the question number (unlike @fig-figure4 where they represented the datasheet ID). Therefore, reading the graph horizontally shows the question numbers that most commonly had the lowest response lengths across all datasheets, while reading the graph vertically shows the question numbers with the lowest response length for each datasheet. 
 
-There were only 4 datasheets that had a minimum response length of 1 word (datasheet 4, 15, 18, 19). While the remaining datasheets had a response length of 0, therefore the question completion percentage can also indicate  which datasheets had the most incomplete responses. 
+There were only 4 datasheets that had a minimum response length of 1 word (datasheet 4, 15, 18, 19). The remaining datasheets had a response length of 0, therefore the question completion percentage can also indicate  which datasheets had the most incomplete responses. 
 
 Reading the graph horizontally shows that the responses that most often had the lowest word count were for questions 18, 19, 27, 28, 29, 30, 31, and 32. 
 
@@ -548,7 +548,7 @@ scale_fill_brewer(palette = "Set1")
 
 ```
 
-The top 5 words across for each datasheet contained special characters, numbers, and stopwords that were not filtered out in the earlier preprocessing. In order to further clean and visualize these words, special characters, numbers, and words with 3 or less characters were excluded. @fig-figure6 shows the remaining top most frequently used words along with their frequencies. Some of the words are still stopwords like 'also' while others contain very specific non-corpus related words like 'Abdullah' representing an organization name that was often repeated 'King Abdullah University of Science and Technology'. 
+The top 5 words across each datasheet contained special characters, numbers, and stopwords that were not filtered out in the earlier preprocessing. In order to further clean and visualize these words, special characters, numbers, and words with 3 or less characters were excluded. @fig-figure6 shows the remaining top most frequently used words along with their frequencies. Some of the words are still stopwords like 'also' while others contain very specific non-corpus related words like 'Abdullah' representing an organization name that was often repeated 'King Abdullah University of Science and Technology'. 
 
 The most frequent words used across all datasheets were the words 'data' and 'dataset'. As these are generic words, unspecific to a particular research topic, these were used most often. Other generic words included 'also', 'authors', 'available', and 'datasets'. Some more specific words used frequently were 'audio' and 'images'. 
 
@@ -586,33 +586,33 @@ Lastly, @fig-figure7 shows the overall score for each datasheet based on its com
 
 ## Findings {#sec-findings}
 
-Based on the results from analyzing various metrics regarding the datasheets, it is clear that the current scope of analysis is narrow due to various challenges and limitations. The goal of this analysis was  to understand how practitioners and researchers fill the datasheets, what areas they choose to focus on, how they answer the questions to determine their level of reflection while completing these datasheets. While examining the completion and response length of questions across the datasheets can aid in understanding these aspects, it does not provide a certified, full picture on how practitioners approach the completion of a datasheet. An example of this is that generating a score by summarizing metrics across the entire datasheet can hide information on per question or per section completion. For example, if authors choose to focus on some sections of the datasheet as compared it  others, it can heavily influence their score as sections have varying number of questions within them. In the 2021 version, the composition and data collection sections are the largest with 26 questions while the motivation section and processing sections have 8 questions. This raises the question where sections should be examined individually for scoring and whether a weighted score should be applied, giving some sections more importance than others. 
+Based on the results from analyzing various metrics regarding the datasheets, it is clear that the current scope of analysis is narrow due to various challenges and limitations. The goal of this analysis was  to understand how practitioners and researchers fill the datasheets, what areas they choose to focus on, and how they answer the questions to determine their level of reflection while completing these datasheets. While examining the completion and response length of questions across the datasheets can aid in understanding these aspects, it does not provide a certified, full picture on how practitioners approach the completion of a datasheet. An example of this is that generating a score by summarizing metrics across the entire datasheet can hide information on per question or per section completion. For example, if authors choose to focus on some sections of the datasheet as compared to others, it can heavily influence their score as sections have differing number of questions within them. In the 2021 version, the composition and data collection sections are the largest with 26 questions while the motivation section and processing sections have 8 questions. This raises the doubt whether sections should be examined individually and whether a weighted score should be applied to give some sections more importance than others. 
 
 There are also inherent insights, limitations, and challenges that can be gleaned from the methodology of the current analysis, which are discussed further below. 
 
 ## Insights {#sec-insights}
 
-While datasheets are a strong start for the machine learning community to perform standardized documentation of their dataset creation process, there are missing considerations of important concepts vital in reducing bias and increasing accountability and transparency. This includes limited consideration of the FAIR principles [@FAIR]. The datasheet contains sections on maintainability and distribution but these can be strengthened by adopting the language and concerns of the FAIR principles. Additionally, in terms of maintenance and distribution, the questions asked whether Github (among other resources) was used for these processes. However, since Github is dependent on its author maintaining the repository, it is not a good method to preserve and maintain data in the long term. In fact, the 2021 version of the datasheets publication [@Gebru_2021] points to a Github repository that no longer exists. Lastly, the datasheet needs to include more questions concerned with the ethicality of the dataset and the dataset creation process including threats to validity, environmental and financial footprint, whether the creation process required specific domain knowledge and whether its reuse requires similar expertise, and whether the involved individuals documented/demonstrated an awareness of the social, political, historical context of the dataset developed.  
+Although, datasheets are a strong start for the machine learning community to perform standardized documentation of their dataset creation process, there are missing considerations of important concepts vital in reducing bias and increasing accountability and transparency. This includes limited consideration of the FAIR principles [@FAIR]. The datasheet contains sections on maintainability and distribution but these can be strengthened by adopting the language and concerns of the FAIR principles. Additionally, in terms of maintenance and distribution, some questions asked whether Github (among other resources) was used for these processes. However, since Github is dependent on its author maintaining the repository, it is not a good method to preserve and store data in the long term. In fact, the 2021 version of the datasheets publication [@Gebru_2021] points to a Github repository that no longer exists. Lastly, datasheets need to include more questions concerned with the ethicality of the dataset and the dataset creation process including threats to validity, environmental and financial footprint, whether the creation process required specific domain knowledge and whether its reuse requires similar expertise, and whether the involved individuals documented/demonstrated an awareness of the social, political, historical context of the dataset developed.  
 
 
 ## Limitations {#sec-limitations}
 
-There are some limitations to the analysis performed in this paper. To start with, the method of deriving score that is assigned to each datasheet does not fully capture the researchers' process in completing the datasheet nor can fully be used as an indicator the datasheet's quality. Primarily, this is because the length of a response does not indicate the quality of the documentation being performed. Furthermore, the score of each datasheet can become problematic if it used to compare the quality of one datasheet with another or various authors' processes of documentation. For example, comparing 2018 datasheets with 2021 datasheets is an issue because the 2018 version had an 'Ethical and legal' section whereas the 2021 paper did not and had an additional 'Uses' section. Many of the limitations in the analysis were due to the challenges faced in examining varying datasheets, as discussed in the next section. 
+There are some limitations to the analysis performed in this paper. To start with, the method of deriving the score that is assigned to each datasheet does not fully capture the researchers' process in completing the datasheet nor can fully be used as an indicator of the datasheet's quality. Primarily, this is because the length of a response does not indicate the quality of the documentation being performed. Furthermore, the score of each datasheet can become problematic if it is used to compare the quality of one datasheet with another or various authors' processes of documentation. For example, comparing 2018 datasheets with 2021 datasheets is an issue because the 2018 version had an 'Ethical and legal' section whereas the 2021 paper did not and had an additional 'Uses' section. Many of the limitations in the analysis were due to the challenges faced in examining varying datasheets, as discussed in the next section. 
 
 ## Challenges {#sec-challenges}
 
-The primary challenge in evaluating the 21 datasheets was the unique formatting and content used by each set of authors. Each of 21 papers co-opted the datasheet in their own method. Firstly, some of the datasheets had paraphrased questions (i.e., changed the  wording of the questions), removed questions altogether, combined multiple questions together, or spliced one question into parts which they answered as individual questions (some examples include: [@Onoe_2021; @Singla_2021; @Bandy_2021; @Shi_2021]). Some datasheets added their own questions which was reasonable since their research was centered around extending or adopting datasheets for a specific purpose [@Srinivasan_2021; @Bandy_2021], however others had no known purpose for doing so [@Asano_2021]. Additionally, there were also papers where each question was not answered individually but rather a paragraph of text was provided for each section header from the datasheet and undoubtedly this lead to various questions being unanswered [@Singla_2021; @Hussain_2021]. This was the main reason, a manual recoding was performed to introduce some standardization around these challenges and enable a simplistic analysis of each datasheet. 
+The primary challenge in evaluating the 21 datasheets was the unique formatting and content used by each set of authors. Each of 21 papers co-opted the datasheet in their own method. Firstly, some of the datasheets had paraphrased questions (i.e., changed the  wording of the questions), removed questions altogether, combined multiple questions together, or spliced one question into parts which they answered as individual questions (some examples include: [@Onoe_2021; @Singla_2021; @Bandy_2021; @Shi_2021]). Some datasheets added their own questions which was reasonable since their research was centered around extending or adopting datasheets for a specific purpose [@Srinivasan_2021; @Bandy_2021], however others had no known purpose for doing so [@Asano_2021]. Additionally, there were also papers where each question was not answered individually but rather a paragraph of text was provided for each section header from the datasheet and undoubtedly this lead to various questions being unanswered [@Singla_2021; @Hussain_2021]. All these differences lead to performing a manual recoding to introduce some standardization around the challenges and enable a simplistic analysis of each datasheet. 
 
-Another common challenge throughout the datasheets was referencing of information outside and within the datasheet. This included referencing supplementary material, Github repositories, appendices, the main research paper content, and other responses within the datasheet, e.g.: "See question 4". Material external to the datasheet was outside the scope of analysis while pointing to responses to other responses in the datasheet ultimately reduced points attributed to length. 
+Another common challenge throughout the datasheets was referencing of information outside and within the datasheet. This included referencing supplementary material, Github repositories, appendices, the main research paper content, and other responses within the datasheet, such as: "See question 4". Material external to the datasheet was outside the scope of analysis while pointing to responses to other responses in the datasheet ultimately reduced points attributed to length. 
 
 # Conclusion {#sec-conclusion}
 
+In this paper, 21 datasheets from the 2021 NeurIPS benchmarks and datasets track were analyzed to investigate researchers' approach in completing datasheets. With the analysis performed and the resulting scores, it is evident that the quality of completion and therefore the level of documentation and reflection is highly dependent on individual researchers as the use of datasheets is not formalized, standardized, and does not have to fulfill any minimum quality metrics. As a resource, datasheets provide a first step to documenting and overcoming bias in datasets and their creation process. However, the ML community must enforce rules and standard practices around its use so that completing datasheets can have beneficial outcomes.  
+
+
 ## Future Work {#sec-future_work}
 
-- analyze 2022 neurips papers
-- write datasheets for the generated papers and analyze them
-- for the 21 sheets analyzed here, do a manual coding and analysis and compare with automated
-- usage of datasheets has to be standardized, and guidelines have to enforce standard formatting to ensure that future analyses can be performed + also retire the 2018 version 
+To extend this work, a greater sample size of datasheets should be investigated, such as the datasheets from the 2022 NeurIPS benchmarks and datasets track or by creating datasheets for existing publications retrospectively. Furthermore, the 21 datasheets analyzed using R statistical programming langugage [@citeR] in this paper can be compared with manual analysis and coding to ascertain differences in results. This can then help improve the methodology of automated analyses of datasheets. Lastly, in order to facilitate the examination of datasheets to yield methods of increasing fairness, accountability, and transparency in the dataset development process, the use and adoption of datasheets must be standardized with guidelines. 
 
 \newpage
 
