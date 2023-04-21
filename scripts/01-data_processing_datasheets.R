@@ -9,6 +9,7 @@
 #### Workspace set-up ####
 library(tidyverse)
 library(pdftools)
+library(stopwords)
 
 #### reading in blank datasheet to establish baselines ####
 
@@ -149,7 +150,7 @@ for(i in 1:nrow(datasheet1_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -210,7 +211,7 @@ for(i in 1:nrow(datasheet1_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -360,7 +361,7 @@ for(i in 1:nrow(datasheet2_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -421,7 +422,7 @@ for(i in 1:nrow(datasheet2_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -571,7 +572,7 @@ for(i in 1:nrow(datasheet3_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -632,7 +633,7 @@ for(i in 1:nrow(datasheet3_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -781,7 +782,7 @@ for(i in 1:nrow(datasheet4_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -842,7 +843,7 @@ for(i in 1:nrow(datasheet4_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -992,7 +993,7 @@ for(i in 1:nrow(datasheet5_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1053,7 +1054,7 @@ for(i in 1:nrow(datasheet5_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1203,7 +1204,7 @@ for(i in 1:nrow(datasheet6_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1264,7 +1265,7 @@ for(i in 1:nrow(datasheet6_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1413,7 +1414,7 @@ for(i in 1:nrow(datasheet14_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1474,7 +1475,7 @@ for(i in 1:nrow(datasheet14_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1623,7 +1624,7 @@ for(i in 1:nrow(datasheet7_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1684,7 +1685,7 @@ for(i in 1:nrow(datasheet7_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1833,7 +1834,7 @@ for(i in 1:nrow(datasheet8_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -1894,7 +1895,7 @@ for(i in 1:nrow(datasheet8_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2043,7 +2044,7 @@ for(i in 1:nrow(datasheet9_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2104,7 +2105,7 @@ for(i in 1:nrow(datasheet9_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2253,7 +2254,7 @@ for(i in 1:nrow(datasheet10_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2314,7 +2315,7 @@ for(i in 1:nrow(datasheet10_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2463,7 +2464,7 @@ for(i in 1:nrow(datasheet11_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2524,7 +2525,7 @@ for(i in 1:nrow(datasheet11_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2673,7 +2674,7 @@ for(i in 1:nrow(datasheet12_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2734,7 +2735,7 @@ for(i in 1:nrow(datasheet12_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2883,7 +2884,7 @@ for(i in 1:nrow(datasheet13_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -2944,7 +2945,7 @@ for(i in 1:nrow(datasheet13_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3093,7 +3094,7 @@ for(i in 1:nrow(datasheet15_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3154,7 +3155,7 @@ for(i in 1:nrow(datasheet15_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3302,7 +3303,7 @@ for(i in 1:nrow(datasheet16_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3363,7 +3364,7 @@ for(i in 1:nrow(datasheet16_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3512,7 +3513,7 @@ for(i in 1:nrow(datasheet17_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3573,7 +3574,7 @@ for(i in 1:nrow(datasheet17_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3722,7 +3723,7 @@ for(i in 1:nrow(datasheet18_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3783,7 +3784,7 @@ for(i in 1:nrow(datasheet18_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3932,7 +3933,7 @@ for(i in 1:nrow(datasheet19_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -3993,7 +3994,7 @@ for(i in 1:nrow(datasheet19_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -4142,7 +4143,7 @@ for(i in 1:nrow(datasheet20_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -4203,7 +4204,7 @@ for(i in 1:nrow(datasheet20_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -4352,7 +4353,7 @@ for(i in 1:nrow(datasheet21_tbl)) {       # for-loop over rows
       wordList <- names(counts)
       
       # remove stopwords from list
-      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 200) ]
+      wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"), 400) ]
       
       # remove blanks and tags
       wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 
@@ -4413,7 +4414,7 @@ for(i in 1:nrow(datasheet21_tbl)) {       # for-loop over rows
     wordList <- names(counts)
     
     # remove stopwords from list
-    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),200) ]
+    wordList <- wordList[!wordList %in% head(stopwords::stopwords("english"),400) ]
     
     # remove blanks and tags
     wordList <- wordList[!wordList %in% c("","[answer1]","[answer2]","[answer3]","[answer4]","[answer5]","[answer6]","[answer7]","[answer8]","[answer9]","[answer10]","[answer11]","[answer12]","[answer13]","[answer14]","[answer15]","[answer16]","[answer17]","[answer18]","[answer19]","[answer20]","[answer21]","[answer22]","[answer23]","[answer24]","[answer25]","[answer26]","[answer27]","[answer28]","[answer29]","[answer30]","[answer31]","[answer32]","[answer33]","[answer34]","[answer35]","[answer36]","[answer37]","[answer38]","[answer39]","[answer40]","[answer41]","[answer42]","[answer43]","[answer44]","[answer45]","[answer46]","[answer47]","[answer48]","[answer49]","[answer50]","[answer51]", "[answer52]", "[answer53]", "[answer54]", "[answer55]", "[answer56]", "[answer57]")] 

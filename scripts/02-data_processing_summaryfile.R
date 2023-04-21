@@ -1225,6 +1225,7 @@ for (i in 1:nrow(summary_df_wo_score)){
 ## summary df with score
 summary_df <- summary_df_wo_score
 
+
 ## write final df to csv
 write.csv(summary_df, file = "./inputs/data/cleaned/summary_all_datasheets.csv", row.names=FALSE)
 
